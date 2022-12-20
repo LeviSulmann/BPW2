@@ -13,6 +13,7 @@ TagManager:
   - EnemyMove
   - EnemyLeft
   - EnemyDown
+  - WEG
   layers:
   - Default
   - TransparentFX

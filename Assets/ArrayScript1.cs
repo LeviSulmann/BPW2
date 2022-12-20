@@ -12,22 +12,19 @@ public class ArrayScript1 : MonoBehaviour
     public GameObject[] myArrayObjectsUp = new GameObject[0];
     public GameObject[] myArrayObjectsDown = new GameObject[0];
 
-    public bool ButtonLeft;
-    public bool ButtonRight;
-    public bool ButtonUp;
-    public bool ButtonDown;
-    public bool ButtonWait;
+    public bool ButtonLeft = false;
+    public bool ButtonRight = false;
+    public bool ButtonUp = false;
+    public bool ButtonDown = false;
+
     int Count = 0;
 
 
     // Start is called before the first frame update
     void Start()
     {
-    ButtonLeft = true;
-    ButtonRight= true;
-    ButtonUp = true;
-    ButtonDown = true;
-    player = GetComponent<Player>();
+
+        player = GetComponent<Player>();
        
 
     }
@@ -36,121 +33,64 @@ public class ArrayScript1 : MonoBehaviour
     {
         MovementEnemy();
 
-        if(myArrayObjectsLeft.Length <2)
-        {
-            ButtonLeft = false;
-        }
-
-        if (myArrayObjectsRight.Length < 2)
-        {
-            ButtonRight = false;
-        }
-
-        if (myArrayObjectsUp.Length < 2)
-        {
-            ButtonUp = false;
-        }
-
-        if (myArrayObjectsDown.Length < 2)
-        {
-            
-            ButtonDown = false;
-        }
-
-      
-
     }
 
 
     public void MovementEnemy()
     {
+       
 
-        if (ButtonWait == false)
+          //LEFT
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            if (ButtonLeft == true)
-            {
-                //LEFT
-                if (Input.GetKeyDown(KeyCode.LeftArrow))
-                {
-                    myArrayObjectsLeft = GameObject.FindGameObjectsWithTag("MoveSetA");
+            myArrayObjectsLeft = GameObject.FindGameObjectsWithTag("MoveSetA");
 
-                    Destroy(myArrayObjectsLeft[0].gameObject);
-                    transform.Translate(-1.05f, 0, 0);
-                    ButtonWait = true;
-                    StartCoroutine(Waiting());
-
-                }
-            }
-
-
-
-            if (ButtonUp == true)
-            {
-                //LEFT
-                if (Input.GetKeyDown(KeyCode.UpArrow))
-                {
-                    myArrayObjectsUp = GameObject.FindGameObjectsWithTag("MoveSetW");
-
-                    Destroy(myArrayObjectsUp[0].gameObject);
-                    transform.Translate(0, 1, 05f, 0);
-                    ButtonWait = true;
-                    StartCoroutine(Waiting());
-
-                }
-            }
-
-            // UP
-
-
-            if (ButtonRight == true)
-            {
-                if (Input.GetKeyDown(KeyCode.RightArrow))
-                {
-                    myArrayObjectsRight = GameObject.FindGameObjectsWithTag("MoveSetD");
-
-                    Destroy(myArrayObjectsRight[0].gameObject);
-                    transform.Translate(1.05f, 0, 0);
-                    ButtonWait = true;
-                    StartCoroutine(Waiting());
-
-                }
-            }
-
-            //DOWN
-            if (ButtonDown == true)
-            {
-                if (Input.GetKeyDown(KeyCode.DownArrow))
-                {
-                    myArrayObjectsDown = GameObject.FindGameObjectsWithTag("MoveSetS");
-
-                    Destroy(myArrayObjectsDown[0].gameObject);
-                    transform.Translate(0, -1.05f, 0);
-                    ButtonWait = true;
-                    StartCoroutine(Waiting());
-
-                }
-            }
-
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
+            Destroy(myArrayObjectsLeft[0].gameObject);
+            transform.Translate(-1.05f, 0, 0);
 
         }
 
-    }
-    IEnumerator Waiting()
-    {
-        yield return new WaitForSeconds(0);
-        ButtonWait = false;
-        Debug.Log("ButtonWait is false");
+
+        // UP
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            myArrayObjectsUp = GameObject.FindGameObjectsWithTag("MoveSetW");
+
+            Destroy(myArrayObjectsUp[0].gameObject);
+            transform.Translate(0, 1, 05f, 0);
+
+        }
+
+        //RIGHT
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            myArrayObjectsRight = GameObject.FindGameObjectsWithTag("MoveSetD");
+
+            Destroy(myArrayObjectsRight[0].gameObject);
+            transform.Translate(1.05f, 0, 0);
+
+        }
+
+        //DOWN
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            myArrayObjectsDown = GameObject.FindGameObjectsWithTag("MoveSetS");
+
+            Destroy(myArrayObjectsDown[0].gameObject);
+            transform.Translate(0, -1.05f, 0);
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
 
     }
+
 
 
 }
-
-
 
 
 
