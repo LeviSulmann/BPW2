@@ -19,9 +19,7 @@ public class CrystalLevel5 : MonoBehaviour
 
     void Awake()
     {
-        GetComponent<BoxCollider2D>().enabled = false;
-        StartCoroutine(Timer());
-
+      
 
     }
 
@@ -33,8 +31,10 @@ public class CrystalLevel5 : MonoBehaviour
     // Update is called once per frame
     public void OnTriggerEnter2D(Collider2D player)
     {
-
-        NextLevel();
+        if (player.gameObject.tag == "Player")
+        {
+            NextLevel();
+        }
 
     }
 
@@ -81,7 +81,7 @@ public class CrystalLevel5 : MonoBehaviour
 
     private IEnumerator Timer()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
         GetComponent<BoxCollider2D>().enabled = true;
     }
 
