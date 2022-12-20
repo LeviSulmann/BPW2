@@ -27,6 +27,7 @@ EditorUserSettings:
       value: 22424703114646680e0b0227036c73150012147c623d28393930
       flags: 0
     RecentlyUsedScenePath-7:
+<<<<<<< HEAD
       value: 22424703114646680e0b0227036c6a19021b1d2d623d28393930
       flags: 0
     RecentlyUsedScenePath-8:
@@ -35,6 +36,16 @@ EditorUserSettings:
     RecentlyUsedScenePath-9:
       value: 22424703114646680e0b0227036c6c111b07142f1f2b233e2867083debf42d
       flags: 0
+=======
+      value: 22424703114646680e0b0227036c6c111b07142f1f2b233e2867083debf42d
+      flags: 0
+    RecentlyUsedScenePath-8:
+      value: 22424703114646680e0b0227036c6a19021b1d2d623d28393930
+      flags: 0
+    RecentlyUsedScenePath-9:
+      value: 22424703114646680e0b0227036c73150012147f623d28393930
+      flags: 0
+>>>>>>> parent of d1b4277 (Final Unity project BPW2 Upload)
     UnityRemoteCompression:
       value: 29617121
       flags: 0
